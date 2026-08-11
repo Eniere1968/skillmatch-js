@@ -74,3 +74,31 @@ class VagaFrontEnd extends Vaga {
     return super.resumo() + " | R$ " + this.salario + " | " + this.modelo;
   }
 }
+
+// lógica do principio
+
+// ainda não tenho
+function faltando(vaga) {
+  return vaga.requisitos.filter((req) => !candidato.habilidades.includes(req));
+}
+
+// ve o requisito que eu tenho
+function compatibilidade(vaga) {
+  const tenho = vaga.requisitos.filter((req) => candidato.habilidades.includes(req));
+  return Math.round((tenho.length / vaga.requisitos.length) * 100);
+}
+
+function classificar(nota) {
+  if (nota >= 80) {
+    return "Alta";
+  } else if (nota >= 50) {
+    return "Média";
+  } else {
+    return "Baixa";
+  }
+}
+
+// ve se eu estou 100%
+function atendeTudo(vaga) {
+  return vaga.requisitos.every((req) => candidato.habilidades.includes(req));
+}
