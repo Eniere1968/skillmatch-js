@@ -102,3 +102,52 @@ function classificar(nota) {
 function atendeTudo(vaga) {
   return vaga.requisitos.every((req) => candidato.habilidades.includes(req));
 }
+
+// a recomendação vai mudar de acordo com seus criterios
+function recomendar(vaga) {
+  const nota = compatibilidade(vaga);
+  const faltam = faltando(vaga);
+  let texto;
+
+  switch (classificar(nota)) {
+    case "Alta":
+      texto = "Falta pouco, pode se candidatar.";
+      break;
+    case "Média":
+      texto = "Dá pra tentar, mas estude o que falta antes.";
+      break;
+    default:
+      texto = "Melhor estudar mais antes de tentar essa.";
+  }
+
+  // es tudar o que fauta
+  if (faltam.length === 0) {
+    return texto + " Diferenciais pra se destacar: " + vaga.diferenciais.join(", ") + ".";
+  }
+
+  return texto + " Estudar: " + faltam.join(", ") + ".";
+}
+
+// melhor vaga de todas vai redusindo e guardando a maior nota
+function melhorVaga(lista) {
+  return lista.reduce(function (melhor, vaga) {
+    return compatibilidade(vaga) > compatibilidade(melhor) ? vaga : melhor;
+  });
+}
+
+// closure: ele conta e acumula
+function criarContador() {
+  let numero = 0;
+  return function () {
+    numero++;
+    return numero;
+  };
+}
+
+// callback: ele decide o que fazer com a vaga
+function paraCadaVaga(lista, callback) {
+  // usei var aqui só de propósito, é o jeito antigo de declarar (hoje uso let)
+  for (var i = 0; i < lista.length; i++) {
+    callback(lista[i]);
+  }
+}
