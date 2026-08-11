@@ -46,3 +46,31 @@ const bancoDeVagas = [
   }
 ];
 
+// classes 
+
+// serve pra qualquer vaga
+class Vaga {
+  constructor(empresa, cargo, requisitos) {
+    this.empresa = empresa;
+    this.cargo = cargo;
+    this.requisitos = requisitos;
+  }
+
+  resumo() {
+    return this.cargo + " - " + this.empresa;
+  }
+}
+
+// herança: da vaga
+class VagaFrontEnd extends Vaga {
+  constructor(empresa, cargo, requisitos, salario, modelo, diferenciais) {
+    super(empresa, cargo, requisitos);
+    this.salario = salario;
+    this.modelo = modelo;
+    this.diferenciais = diferenciais;
+  }
+
+  resumo() {
+    return super.resumo() + " | R$ " + this.salario + " | " + this.modelo;
+  }
+}
