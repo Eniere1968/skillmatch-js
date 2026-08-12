@@ -33,15 +33,15 @@ node skillmatch.js
 
 | Conceito | Onde aparece |
 |----------|--------------|
-| Variáveis/const/let | (var proposital no loop) |
-| Arrays e métodos | filter, map, reduce, find, join, every, includes (linhas 45-55, 78, 98) |
+| Variáveis/const/let | (var  no loop) |
+| Arrays e métodos | filter, map, reduce, find, join, every, includes |
 | Funções | faltando, compatibilidade, classificar, recomendar, melhorVaga, criarContador, paraCadaVaga |
 | Arrow functions | setTimeout(() => ...), vagas.filter(v => ...) |
-| Classes + Herança | class Vaga + class VagaFrontEnd extends Vaga (linhas 24-41) |
-| Closure | criarContador retorna função que captura numero (linha 70) |
-| Callback | paraCadaVaga(lista, callback) (linha 77) |
-| Promise + async/await | buscarVagas() + await buscarVagas() no main() (linhas 84-95, 100) |
-| Try/catch | Tratamento de erro na busca (linhas 102-108) |
+| Classes + Herança | class Vaga + class VagaFrontEnd extends Vaga 
+| Closure | criarContador retorna função que captura numero 
+| Callback | paraCadaVaga(lista, callback) 
+| Promise + async/await | buscarVagas() + await buscarVagas() no main() 
+| Try/catch | Tratamento de erro na busca 
 | Template strings | console.log(`...${var}...`) implícito via concatenação |
 
 ## Arquitetura cliente-servidor no projeto
@@ -54,3 +54,5 @@ node skillmatch.js
 - **Servidor (simulado):** `bancoDeVagas` + `buscarVagas()` com `setTimeout` + `Promise` — quem fornece os dados com latência e falha aleatória
 - **Comunicação:** Assíncrona via Promise (simula HTTP request/response)
 - **Retry:** Loop `while` com 3 tentativas = resiliência do cliente
+- link do video https://youtu.be/nY0VazFuPhI
+- link do trello https://trello.com/invite/b/6a794bc07ea34afac3609331/ATTI9656e240e19a02733818f5fda7b969268964C8AC/mini-projeto
